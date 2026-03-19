@@ -1,5 +1,8 @@
 # Desafio MBA Engenharia de Software com IA - Full Cycle
 
+-1-Ingestão: Ler um arquivo PDF e salvar suas informações em um banco de dados PostgreSQL com extensão pgVector.
+-2-Busca: Permitir que o usuário faça perguntas via linha de comando (CLI) e receba respostas baseadas apenas no conteúdo do PDF.
+
 # 🚀 Como Executar a Aplicação
 
 ## 📋 Pré-requisitos
