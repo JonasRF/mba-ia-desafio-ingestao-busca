@@ -38,8 +38,21 @@ PDF_PATH=document.pdf
 ```
 ## ⚠️ Ajuste conforme sua configuração local
 
+# Estrutura obrigatória do projeto
+```
+├── docker-compose.yml
+├── requirements.txt      # Dependências
+├── .env.example          # Template da variável OPENAI_API_KEY
+├── src/
+│   ├── ingest.py         # Script de ingestão do PDF
+│   ├── search.py         # Script de busca
+│   ├── chat.py           # CLI para interação com usuário
+├── document.pdf          # PDF para ingestão
+└── README.md             # Instruções de execução
+```
 
 # 🐳 Subir infraestrutura (PostgreSQL + pgvector)
+
 ```
 docker-compose up -d
 ```
