@@ -138,7 +138,7 @@ flowchart TD
     I --> J[Resposta Gerada]
     J --> A
 
-    subgraph Ingestão -> ingest.py
+    subgraph Ingestão 
         K[Documentos PDF] --> L[Leitura e Chunking]
         L --> M[Embeddings]
         M --> F
