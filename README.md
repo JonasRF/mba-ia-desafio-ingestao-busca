@@ -127,7 +127,7 @@ A aplicação segue o padrão **RAG (Retrieval-Augmented Generation)**, combinan
 
 ```mermaid
 flowchart TD
-    A[Usuário] --> B[Interface CLI - main.py]
+    A[Usuário] --> B[Interface CLI - chat.py]
     B --> C[Camada de Busca - search.py]
     C --> D[Pipeline RAG]
     D --> E[Gerador de Embeddings]
@@ -138,7 +138,7 @@ flowchart TD
     I --> J[Resposta Gerada]
     J --> A
 
-    subgraph Ingestão
+    subgraph Ingestão(ingest.py)
         K[Documentos PDF] --> L[Leitura e Chunking]
         L --> M[Embeddings]
         M --> F
