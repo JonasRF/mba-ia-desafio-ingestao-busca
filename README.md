@@ -28,13 +28,13 @@ cd mba-ia-desafio-ingestao-busca
 Crie um arquivo .env na raiz do projeto com as variáveis necessárias:
 
 ```
-GOOGLE_API_KEY=your_api_key_here
-GOOGLE_EMBEDDING_MODEL='models/embedding-001'
-OPENAI_API_KEY=
-OPENAI_EMBEDDING_MODEL='text-embedding-3-small'
-DATABASE_URL=
-PG_VECTOR_COLLECTION_NAME=
-PDF_PATH=
+OPENAI_API_KEY=sua_chave_aqui
+OPENAI_EMBEDDING_MODEL=text-embedding-3-small
+GOOGLE_API_KEY=sua_chave_aqui
+GOOGLE_EMBEDDING_MODEL=models/embedding-001
+DATABASE_URL=postgresql+psycopg://postgres:postgres@localhost:5432/rag
+PG_VECTOR_COLLECTION_NAME=gpt5_collection
+PDF_PATH=document.pdf
 ```
 ## ⚠️ Ajuste conforme sua configuração local
 
@@ -125,9 +125,63 @@ flowchart TD
     I --> J[Resposta Gerada]
     J --> A
 
-    subgraph Ingestão
+    subgraph Ingestão(ingest.py)
         K[Documentos PDF] --> L[Leitura e Chunking]
         L --> M[Embeddings]
         M --> F
     end
 ```
+#📚 Explicação Técnica
+###🔹 LangChain
+
+O projeto utiliza o LangChain como orquestrador do fluxo de IA, permitindo:
+
+- Integração com modelos LLM (ex: OpenAI)
+
+- Criação de pipelines de processamento
+
+- Encadeamento de etapas (chains)
+
+- Abstração de chamadas para embeddings e busca
+
+###🔹 Embeddings
+
+### Embeddings são representações vetoriais de texto que capturam seu significado semântico.
+
+Como são usados no projeto:
+
+- Os documentos PDF são convertidos em texto
+
+- O texto é dividido em pequenos trechos (chunks)
+
+- Cada chunk é transformado em um vetor numérico (embedding)
+
+- Os vetores são armazenados no banco de dados vetorial
+
+#🔹 Banco Vetorial (pgvector)
+
+O projeto utiliza:
+
+- PostgreSQL + extensão pgvector
+
+### Funções principais:
+
+- Armazenar embeddings
+
+- Realizar busca por similaridade
+
+- Recuperar os trechos mais relevantes com base na pergunta
+
+#🔹 Pipeline de Consulta
+
+Quando o usuário faz uma pergunta:
+
+- A pergunta é convertida em embedding
+
+- O sistema busca os vetores mais próximos no banco
+
+- Os trechos mais relevantes são recuperados
+
+- Esses trechos são enviados como contexto para o LLM
+
+- O modelo gera uma resposta baseada nesse contexto
