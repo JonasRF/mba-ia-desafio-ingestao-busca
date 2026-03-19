@@ -163,7 +163,7 @@ O projeto utiliza o LangChain como orquestrador do fluxo de IA, permitindo:
 
 Como são usados no projeto:
 
-- Os documentos PDF são convertidos em texto
+- O documento PDF é convertido em texto
 
 - O texto é dividido em pequenos trechos (chunks)
 
