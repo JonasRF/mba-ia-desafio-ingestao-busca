@@ -144,8 +144,8 @@ flowchart TD
         M --> F
     end
 ```
-#📚 Explicação Técnica
-###🔹 LangChain
+# 📚 Explicação Técnica
+### 🔹 LangChain
 
 O projeto utiliza o LangChain como orquestrador do fluxo de IA, permitindo:
 
@@ -157,7 +157,7 @@ O projeto utiliza o LangChain como orquestrador do fluxo de IA, permitindo:
 
 - Abstração de chamadas para embeddings e busca
 
-###🔹 Embeddings
+### 🔹 Embeddings
 
 ### Embeddings são representações vetoriais de texto que capturam seu significado semântico.
 
@@ -171,7 +171,7 @@ Como são usados no projeto:
 
 - Os vetores são armazenados no banco de dados vetorial
 
-#🔹 Banco Vetorial (pgvector)
+# 🔹 Banco Vetorial (pgvector)
 
 O projeto utiliza:
 
@@ -185,7 +185,7 @@ O projeto utiliza:
 
 - Recuperar os trechos mais relevantes com base na pergunta
 
-#🔹 Pipeline de Consulta
+# 🔹 Pipeline de Consulta
 
 Quando o usuário faz uma pergunta:
 
