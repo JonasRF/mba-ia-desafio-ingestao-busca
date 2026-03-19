@@ -104,7 +104,7 @@ python src/ingest.py
 ```
 python src/chat.py
 ```
-Você poderá fazer perguntas como:
+## Você poderá fazer perguntas como:
 
 🧪 Exemplo de uso
 ```
