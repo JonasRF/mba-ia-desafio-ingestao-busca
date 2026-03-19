@@ -104,7 +104,29 @@ Resposta: Não tenho informações necessárias para responder sua pergunta.
 
 ## O sistema responde com base nos dados ingeridos (RAG).
 
-🛑 Parar os serviços
+---
 
-</>
-docker-compose down
+# 📊 Arquitetura da Solução
+
+A aplicação segue o padrão **RAG (Retrieval-Augmented Generation)**, combinando um banco vetorial com modelos de linguagem para responder perguntas com base em documentos.
+
+## 🔷 Diagrama de Arquitetura
+
+```mermaid
+flowchart TD
+    A[Usuário] --> B[Interface CLI - main.py]
+    B --> C[Pipeline de Consulta]
+    C --> D[Gerador de Embeddings]
+    D --> E[Banco Vetorial - PostgreSQL + pgvector]
+    E --> F[Busca Semântica]
+    F --> G[Contexto Relevante]
+    G --> H[LLM - Gemini / LangChain]
+    H --> I[Resposta Gerada]
+    I --> A
+
+    subgraph Ingestão
+        J[Documentos PDF] --> K[Leitura e Chunking]
+        K --> L[Embeddings]
+        L --> E
+    end
+```
