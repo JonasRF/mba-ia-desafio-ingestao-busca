@@ -9,7 +9,7 @@ Antes de iniciar, certifique-se de ter instalado:
 - Python 3.10+
 - Docker e Docker Compose
 - Git
-- Conta e chave de API do Google Gemini (ou equivalente configurado no projeto)
+- Conta e chave de API do Google Gemini e da OpenAI
 
 ---
 
