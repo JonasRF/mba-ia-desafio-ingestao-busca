@@ -114,19 +114,20 @@ A aplicação segue o padrão **RAG (Retrieval-Augmented Generation)**, combinan
 
 ```mermaid
 flowchart TD
-    A[Usuário] --> B[Interface CLI - main.py]
-    B --> C[Pipeline de Consulta]
-    C --> D[Gerador de Embeddings]
-    D --> E[Banco Vetorial - PostgreSQL + pgvector]
-    E --> F[Busca Semântica]
-    F --> G[Contexto Relevante]
-    G --> H[LLM - Gemini / LangChain]
-    H --> I[Resposta Gerada]
-    I --> A
+    A[Usuário] --> B[Interface CLI - chat.py]
+    B --> C[Camada de Busca - search.py]
+    C --> D[Pipeline RAG]
+    D --> E[Gerador de Embeddings]
+    E --> F[Banco Vetorial - PostgreSQL + pgvector]
+    F --> G[Busca Semântica]
+    G --> H[Contexto Relevante]
+    H --> I[LLM - Gemini / LangChain]
+    I --> J[Resposta Gerada]
+    J --> A
 
     subgraph Ingestão
-        J[Documentos PDF] --> K[Leitura e Chunking]
-        K --> L[Embeddings]
-        L --> E
+        K[Documentos PDF] --> L[Leitura e Chunking]
+        L --> M[Embeddings]
+        M --> F
     end
 ```
