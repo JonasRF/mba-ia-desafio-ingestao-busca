@@ -46,45 +46,60 @@ docker-compose up -d
 
 Esse comando irá subir:
 
---Banco PostgreSQL
+- Banco PostgreSQL
 
---Extensão pgvector para armazenamento de embeddings
+- Extensão pgvector para armazenamento de embeddings
 
-🐍 Criar e ativar ambiente virtual
-Linux / Mac:
+# 🐍 Criar e ativar ambiente virtual
+
+### Linux / Mac:
+```
 python3 -m venv venv
 source venv/bin/activate
-Windows:
+```
+## Windows:
+```
 python -m venv venv
 venv\Scripts\activate
-📦 Instalar dependências
+```
+
+# 📦 Instalar dependências
+
+```
 pip install -r requirements.txt
-📄 Executar ingestão de documentos
+```
+
+## 📄 Executar ingestão de documentos
 
 Caso exista um script de ingestão (ex: ingest.py):
 
+```
 python ingest.py
+```
 
-Esse processo irá:
+### Esse processo irá:
 
-Ler arquivos PDF
+- Ler arquivos PDF
 
-Dividir em chunks
+- Dividir em chunks
 
-Gerar embeddings
+- Gerar embeddings
 
-Armazenar no banco vetorial
+- Armazenar no banco vetorial
 
 💬 Executar o sistema de busca (chat)
-python main.py
-
-Ou outro arquivo principal do projeto.
-
+```
+python chat.py
+```
 Você poderá fazer perguntas como:
 
-Quantas empresas existem no documento?
 🧪 Exemplo de uso
-Pergunta: Qual é o conteúdo principal do PDF?
-Resposta: ...
+```
+Faça sua pergunta: Qual o faturamento da Empresa SuperTechIABrazil?
+Resposta: O faturamento da Empresa SuperTechIABrazil é R$ 10.000.000,00.
 
-O sistema responde com base nos dados ingeridos (RAG).
+Faça sua pergunta: Quantos clientes temos em 2024?
+Resposta: Não tenho informações necessárias para responder sua pergunta.
+```
+
+## O sistema responde com base nos dados ingeridos (RAG).
