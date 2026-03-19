@@ -71,10 +71,10 @@ pip install -r requirements.txt
 
 ## 📄 Executar ingestão de documentos
 
-Caso exista um script de ingestão (ex: ingest.py):
+Executar o script de ingestão (ex: ingest.py):
 
 ```
-python ingest.py
+python src/ingest.py
 ```
 
 ### Esse processo irá:
@@ -87,9 +87,9 @@ python ingest.py
 
 - Armazenar no banco vetorial
 
-💬 Executar o sistema de busca (chat)
+💬 Executar o sistema de busca (chat.py)
 ```
-python chat.py
+python src/chat.py
 ```
 Você poderá fazer perguntas como:
 
@@ -103,3 +103,8 @@ Resposta: Não tenho informações necessárias para responder sua pergunta.
 ```
 
 ## O sistema responde com base nos dados ingeridos (RAG).
+
+🛑 Parar os serviços
+
+</>
+docker-compose down
